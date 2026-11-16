@@ -1,0 +1,13 @@
+// / always gives a Float, div is whole-number division, and Ints that overflow stop loudly.
+fn main() {
+  let people = 4
+  let pizzas = 7
+  print(pizzas / people)
+  print(div(pizzas, people))
+  print(7.5 / to_float(people))
+  var big = 9007199254740990
+  big += 1
+  print(big)
+  big += 1
+  print("never printed: {big}")
+}

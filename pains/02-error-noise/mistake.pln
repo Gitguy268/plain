@@ -1,0 +1,6 @@
+// In Plain a failure is part of the type, so it can't be dropped or used by accident.
+fn main() {
+  parse_int("7")
+  let n: Int = parse_int("seven")
+  print(n)
+}

@@ -1,0 +1,6 @@
+// The same mistake in Plain is caught before the program runs.
+fn main() {
+  let users = [{id: 1, name: "Ann"}, {id: 2, name: "Bo"}]
+  let user = list.find(users, fn(u) u.id == 3)
+  print(string.upper(user.name))
+}

@@ -1,0 +1,40 @@
+// Helpers for values that might be missing.
+
+pub fn unwrap_or[T](value: Option[T], fallback: T) -> T {
+  match value {
+    Some(x) -> x
+    None -> fallback
+  }
+}
+
+pub fn map[A, B](value: Option[A], f: fn(A) -> B) -> Option[B] {
+  match value {
+    Some(x) -> Some(f(x))
+    None -> None
+  }
+}
+
+pub fn then[A, B](value: Option[A], f: fn(A) -> Option[B]) -> Option[B] {
+  match value {
+    Some(x) -> f(x)
+    None -> None
+  }
+}
+
+pub fn is_some[T](value: Option[T]) -> Bool {
+  match value {
+    Some(_) -> true
+    None -> false
+  }
+}
+
+pub fn is_none[T](value: Option[T]) -> Bool {
+  !is_some(value)
+}
+
+pub fn to_result[T, E](value: Option[T], error: E) -> Result[T, E] {
+  match value {
+    Some(x) -> Ok(x)
+    None -> Err(error)
+  }
+}

@@ -1,0 +1,4 @@
+// The program's surroundings.
+
+pub extern fn args() -> List[String] = "$os.args"
+pub extern fn env(name: String) -> Option[String] = "$os.env"

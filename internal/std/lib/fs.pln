@@ -1,0 +1,5 @@
+// Files. These work in Node and Bun, not in the browser.
+
+pub extern fn read_file(path: String) -> Result[String, String] = "$fs.read_file"
+pub extern fn write_file(path: String, text: String) -> Result[Unit, String] = "$fs.write_file"
+pub extern fn exists(path: String) -> Bool = "$fs.exists"

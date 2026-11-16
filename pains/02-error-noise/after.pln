@@ -1,0 +1,13 @@
+// ? passes an error up in one character. The happy path stays readable.
+fn total(items: List[String]) -> Result[Int, String] {
+  var sum = 0
+  for item in items {
+    sum += parse_int(item)?
+  }
+  Ok(sum)
+}
+
+fn main() {
+  print(total(["1", "2", "3"]))
+  print(total(["1", "seven"]))
+}

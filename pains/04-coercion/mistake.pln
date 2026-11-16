@@ -1,0 +1,12 @@
+// Plain finds it at compile time, on every branch.
+fn receipt(total: Int) -> String {
+  if total > 100 {
+    "Total: " + total
+  } else {
+    "Total: " ++ show(total)
+  }
+}
+
+fn main() {
+  print(receipt(5))
+}

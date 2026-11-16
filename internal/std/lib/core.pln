@@ -1,0 +1,12 @@
+// The core module. Everything here can be used without an import.
+
+pub type Option[T] = Some(T) | None
+pub type Result[T, E] = Ok(T) | Err(E)
+
+pub extern fn print[T](value: T) = "$print"
+pub extern fn show[T](value: T) -> String = "$show"
+pub extern fn panic[T](message: String) -> T = "$panic"
+pub extern fn to_float(n: Int) -> Float = "$to_float"
+pub extern fn parse_int(text: String) -> Result[Int, String] = "$parse_int"
+pub extern fn parse_float(text: String) -> Result[Float, String] = "$parse_float"
+pub extern fn div(a: Int, b: Int) -> Int = "$div"

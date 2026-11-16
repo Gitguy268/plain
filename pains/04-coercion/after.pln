@@ -1,0 +1,13 @@
+// Interpolation or ++ with show: the conversion is always written down.
+fn receipt(total: Int) -> String {
+  if total > 100 {
+    "Total: {total} (free shipping)"
+  } else {
+    "Total: " ++ show(total)
+  }
+}
+
+fn main() {
+  print(receipt(5))
+  print(receipt(500))
+}

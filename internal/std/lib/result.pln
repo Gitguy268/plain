@@ -1,0 +1,47 @@
+// Helpers for operations that can fail.
+
+pub fn unwrap_or[T, E](value: Result[T, E], fallback: T) -> T {
+  match value {
+    Ok(x) -> x
+    Err(_) -> fallback
+  }
+}
+
+pub fn map[A, B, E](value: Result[A, E], f: fn(A) -> B) -> Result[B, E] {
+  match value {
+    Ok(x) -> Ok(f(x))
+    Err(e) -> Err(e)
+  }
+}
+
+pub fn map_err[T, E, F](value: Result[T, E], f: fn(E) -> F) -> Result[T, F] {
+  match value {
+    Ok(x) -> Ok(x)
+    Err(e) -> Err(f(e))
+  }
+}
+
+pub fn then[A, B, E](value: Result[A, E], f: fn(A) -> Result[B, E]) -> Result[B, E] {
+  match value {
+    Ok(x) -> f(x)
+    Err(e) -> Err(e)
+  }
+}
+
+pub fn is_ok[T, E](value: Result[T, E]) -> Bool {
+  match value {
+    Ok(_) -> true
+    Err(_) -> false
+  }
+}
+
+pub fn is_err[T, E](value: Result[T, E]) -> Bool {
+  !is_ok(value)
+}
+
+pub fn to_option[T, E](value: Result[T, E]) -> Option[T] {
+  match value {
+    Ok(x) -> Some(x)
+    Err(_) -> None
+  }
+}

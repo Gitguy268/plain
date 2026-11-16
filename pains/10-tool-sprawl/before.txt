@@ -1,0 +1,9 @@
+A typical JavaScript project needs these before the first line of code:
+
+  npm init -y
+  npm install --save-dev typescript prettier eslint vitest
+  npx tsc --init
+  npx eslint --init
+  (plus .prettierrc, eslint.config.js, vitest.config.ts and a "scripts" block)
+
+Then every project picks slightly different settings, so code looks different everywhere.

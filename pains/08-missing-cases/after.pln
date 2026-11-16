@@ -1,0 +1,16 @@
+// Every case is handled, and the compiler keeps it that way.
+type Status = Active | Banned | Pending(since: String)
+
+fn label(s: Status) -> String {
+  match s {
+    Active -> "Active"
+    Banned -> "Banned"
+    Pending(since) -> "Pending since {since}"
+  }
+}
+
+fn main() {
+  for s in [Active, Pending("Monday")] {
+    print(label(s))
+  }
+}

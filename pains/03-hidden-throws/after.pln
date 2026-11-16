@@ -1,0 +1,12 @@
+// The thrown JavaScript error comes back as an Err value you can handle.
+extern fn decode(text: String) -> Result[String, String] = "decodeURIComponent"
+
+fn main() {
+  for text in ["caf%C3%A9", "100%"] {
+    match decode(text) {
+      Ok(s) -> print(string.upper(s))
+      Err(problem) -> print("Can't decode {text}: {problem}")
+    }
+  }
+  print("still running")
+}

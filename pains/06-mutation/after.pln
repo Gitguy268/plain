@@ -1,0 +1,14 @@
+// Lists never change: push gives a new list. Defaults are made fresh on every call.
+fn add_item(item: String, items: List[String] = []) -> List[String] {
+  list.push(items, item)
+}
+
+fn main() {
+  print(add_item("a"))
+  print(add_item("b"))
+
+  let defaults = ["dark"]
+  let settings = list.push(defaults, "large-text")
+  print(defaults)
+  print(settings)
+}

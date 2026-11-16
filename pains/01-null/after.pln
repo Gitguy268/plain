@@ -1,0 +1,10 @@
+// list.find gives an Option, and match makes you say what happens when nothing is found.
+fn main() {
+  let users = [{id: 1, name: "Ann"}, {id: 2, name: "Bo"}]
+  for id in [1, 3] {
+    match list.find(users, fn(u) u.id == id) {
+      Some(user) -> print(string.upper(user.name))
+      None -> print("No user with id {id}")
+    }
+  }
+}

@@ -1,0 +1,12 @@
+// Dicts map keys to values. Like lists, they never change: set and remove return a new dict.
+
+pub extern fn empty[K, V]() -> Dict[K, V] = "$dict.empty"
+pub extern fn from_list[K, V](pairs: List[{key: K, value: V}]) -> Dict[K, V] = "$dict.from_list"
+pub extern fn set[K, V](d: Dict[K, V], key: K, value: V) -> Dict[K, V] = "$dict.set"
+pub extern fn get[K, V](d: Dict[K, V], key: K) -> Option[V] = "$dict.get"
+pub extern fn has[K, V](d: Dict[K, V], key: K) -> Bool = "$dict.has"
+pub extern fn remove[K, V](d: Dict[K, V], key: K) -> Dict[K, V] = "$dict.remove"
+pub extern fn keys[K, V](d: Dict[K, V]) -> List[K] = "$dict.keys"
+pub extern fn values[K, V](d: Dict[K, V]) -> List[V] = "$dict.values"
+pub extern fn entries[K, V](d: Dict[K, V]) -> List[{key: K, value: V}] = "$dict.entries"
+pub extern fn size[K, V](d: Dict[K, V]) -> Int = "$dict.size"

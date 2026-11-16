@@ -1,0 +1,7 @@
+// One ==. It compares contents, for lists, records and variants too.
+fn main() {
+  print([1, 2] == [1, 2])
+  print({name: "Ann", age: 3} == {name: "Ann", age: 3})
+  print(Some(1) == None)
+  print(parse_int("42") == Ok(42))
+}

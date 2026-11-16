@@ -1,0 +1,17 @@
+Plain
+Copyright (c) 2026 Lucas Van De Weerd
+Licensed under the MIT License (see LICENSE).
+
+Ideas, no code
+--------------
+Plain's design borrows ideas from these languages. No source code was copied.
+
+- Elm (BSD-3-Clause): friendly compiler error messages, no runtime exceptions.
+- Rust (MIT OR Apache-2.0): Option and Result types, the ? operator, exhaustive match.
+- Gleam (Apache-2.0): a small typed language that compiles to JavaScript, one formatter style.
+- Swift (Apache-2.0): optionals checked by the compiler.
+- OCaml (LGPL-2.1 with linking exception): Hindley-Milner type inference, tagged unions.
+
+Third-party code
+----------------
+None. The compiler uses only the Go standard library.

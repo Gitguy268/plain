@@ -1,0 +1,5 @@
+fn main() {
+  let scores = [3, 1, 2]
+  print(list.len(scores) + 1)
+  print(scores |> list.sort)
+}

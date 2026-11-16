@@ -1,0 +1,7 @@
+// An extern that calls JavaScript says in its type that it can fail,
+// so the result can't be used as plain text without handling the error.
+extern fn decode(text: String) -> Result[String, String] = "decodeURIComponent"
+
+fn main() {
+  print(string.upper(decode("100%")))
+}

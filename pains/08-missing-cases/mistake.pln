@@ -1,0 +1,13 @@
+// Adding a variant makes every match that forgot it an error.
+type Status = Active | Banned | Pending
+
+fn label(s: Status) -> String {
+  match s {
+    Active -> "Active"
+    Banned -> "Banned"
+  }
+}
+
+fn main() {
+  print(label(Pending))
+}

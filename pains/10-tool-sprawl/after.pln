@@ -1,0 +1,10 @@
+// One tool: plain new, plain run, plain test, plain fmt. No config files.
+fn fizzbuzz(n: Int) -> String {
+  match {fizz: n % 3 == 0, buzz: n % 5 == 0} {
+    _ -> "x"
+  }
+}
+
+fn main() {
+  print(fizzbuzz(15))
+}

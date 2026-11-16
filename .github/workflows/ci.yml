@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: gofmt
+        run: test -z "$(gofmt -l .)" || { gofmt -l .; exit 1; }
+
+      - run: go vet ./...
+
+      - run: go test ./...
+
+      - name: Build the CLI and run the pains examples
+        run: |
+          go build -o plain ./cmd/plain
+          for f in pains/0*/after.pln; do
+            echo "== $f"
+            if [ "$f" = pains/07-numbers/after.pln ]; then
+              # this example ends on purpose with the Int overflow stop
+              ./plain run "$f" 2>&1 | tee out.txt || true
+              grep -q "Int overflow" out.txt
+            else
+              ./plain run "$f"
+            fi
+          done
+          for f in pains/0*/mistake.pln; do
+            echo "== $f (must not compile)"
+            if NO_COLOR=1 ./plain check "$f"; then echo "expected an error"; exit 1; fi
+          done

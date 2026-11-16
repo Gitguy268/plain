@@ -1,0 +1,13 @@
+// Maths on Floats. Rounding functions give an Int.
+
+pub let pi = 3.141592653589793
+
+pub extern fn sqrt(x: Float) -> Float = "$math.sqrt"
+pub extern fn pow(x: Float, power: Float) -> Float = "$math.pow"
+pub extern fn abs(x: Float) -> Float = "$math.abs"
+pub extern fn floor(x: Float) -> Int = "$math.floor"
+pub extern fn ceil(x: Float) -> Int = "$math.ceil"
+pub extern fn round(x: Float) -> Int = "$math.round"
+pub extern fn min(a: Float, b: Float) -> Float = "$math.min"
+pub extern fn max(a: Float, b: Float) -> Float = "$math.max"
+pub extern fn random() -> Float = "$math.random"

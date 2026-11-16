@@ -1,0 +1,6 @@
+// Int and Float never mix silently.
+fn main() {
+  let people = 4
+  let price = 7.5
+  print(price / people)
+}

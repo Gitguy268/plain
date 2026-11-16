@@ -1,0 +1,6 @@
+// Values made with let can't change, so nobody can change them under you.
+fn main() {
+  let settings = ["dark"]
+  settings = list.push(settings, "large-text")
+  print(settings)
+}
